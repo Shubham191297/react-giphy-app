@@ -8,13 +8,17 @@ const GiphyCard = (props) => {
     import_datetime,
     trending_datetime,
     key,
-    url,
     browseURL,
   } = props;
   return (
     <div>
       <div className="card" style={{ width: "18rem", color: "black" }}>
-        <iframe src={imageURL} className="card-img-top mt-1" alt="..." />
+        <iframe
+          src={imageURL}
+          className="card-img-top mt-1"
+          alt="..."
+          title={key}
+        />
         {/*<a link={imageURL}>Go to Gif</a>*/}
         <div className="card-body">
           <h5 className="card-title">{title}</h5>

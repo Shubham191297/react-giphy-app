@@ -1,20 +1,21 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import GiphyCard from "./GiphyCard";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchData, giphyListActions } from "../store/listgiphy-actions";
+import { useCallback } from "react";
+import { fetchData } from "../store/listgiphy-actions";
 
 const Container = () => {
   const listGiphy = useSelector((state) => state.gifList);
   const dispatch = useDispatch();
 
-  const sendRequest = async () => {
+  const sendRequest = useCallback(async () => {
     dispatch(fetchData());
-  };
+  }, [dispatch]);
 
   useEffect(() => {
     sendRequest();
-  }, []);
+  }, [sendRequest]);
 
   return (
     <div className="container text-center" style={{ color: "white" }}>
